@@ -1,9 +1,20 @@
 import { useState } from 'react'
+import HomePage from './pages/HomePage/HomePage'
+import AboutPage from './pages/AboutPage/AboutPage'
+import SkillsPage from './pages/SkillsPage/SkillsPage'
+import AchievementsPage from './pages/AchievementsPage/AchievementsPage'
+import ProjectsPage from './pages/ProjectsPage/ProjectsPage'
+import ContactPage from './pages/ContactsPage/ContactPage'
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <h1 className='text-amber-100'>Hello World</h1>
+    <>
+      <HomePage />
+      <AboutPage />
+      <SkillsPage/>
+      <ProjectsPage />
+      <AchievementsPage />
+      <ContactPage />
+    </>
   )
 }
 
