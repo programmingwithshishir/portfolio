@@ -1,3 +1,4 @@
+import { FolderOpen } from 'lucide-react';
 import ProjectCard from "./ProjectCard";
 import projectA1 from "../../assets/projects/project1/1.png";
 import projectA2 from "../../assets/projects/project1/2.png";
@@ -41,15 +42,36 @@ const ProjectsPage = () => {
     ];
 
     return ( 
-        <div id="projects" className="min-h-screen bg-highlight p-8">
-        <div className="max-w-6xl mx-auto">
-            <h1 className="text-4xl font-bold text-dominant text-center mb-12">My Projects</h1>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {sampleProjects.map((project, index) => (
-                <ProjectCard key={index} {...project} />
-            ))}
+        <div id="projects" className="min-h-screen bg-dominant">
+            {/* Header Section */}
+            <div className="relative overflow-hidden bg-gradient-to-br from-dominant to-gray-900">
+                <div className="absolute inset-0 bg-black/20"></div>
+                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+                    <div className="text-center">
+                        <div className="inline-flex items-center gap-2 mb-6">
+                            <FolderOpen className="w-8 h-8 text-highlight" />
+                            <h1 className="text-4xl md:text-6xl font-bold text-white">
+                                My Projects
+                            </h1>
+                        </div>
+                        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                            A showcase of my recent work, featuring full-stack applications built with modern technologies and best practices
+                        </p>
+                        <div className="mt-8 flex justify-center">
+                            <div className="w-24 h-1 bg-gradient-to-r from-highlight to-accent rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+
+            {/* Projects Grid */}
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {sampleProjects.map((project, index) => (
+                        <ProjectCard key={index} {...project} />
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }
