@@ -5,3 +5,7 @@
   --color-highlight: #948979;
   --color-accent: #DFD0B8;
 }
+
+html {
+  scroll-behavior: smooth;
+}
