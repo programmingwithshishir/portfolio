@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Code, Palette, Database, Globe, Smartphone, Server, Brain, Wrench } from 'lucide-react';
+import { Code, Palette, Database, Globe, Smartphone, Server, Brain, Wrench, FileText, Download, ExternalLink } from 'lucide-react';
 
 const SkillsPage = () => {
     const [activeCategory, setActiveCategory] = useState('frontend');
@@ -88,7 +88,7 @@ const SkillsPage = () => {
     );
 
     return ( 
-        <div className="min-h-screen w-full bg-dominant">
+        <div id="skills" className="min-h-screen w-full bg-dominant">
             {/* Header Section */}
             <div className="relative overflow-hidden bg-gradient-to-br from-dominant to-gray-900">
                 <div className="absolute inset-0 bg-black/20"></div>
@@ -103,8 +103,29 @@ const SkillsPage = () => {
                         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
                             A comprehensive overview of my technical expertise and the tools I use to bring ideas to life
                         </p>
-                        <div className="mt-8 flex justify-center">
+                        <div className="mt-8 flex flex-col items-center gap-6">
                             <div className="w-24 h-1 bg-gradient-to-r from-highlight to-accent rounded-full"></div>
+                            
+                            {/* Resume Button */}
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <button 
+                                    onClick={() => window.open('/assets/resume/resume.pdf', '_blank')}
+                                    className="cursor-pointer group relative px-8 py-4 bg-gradient-to-r from-highlight to-accent text-dominant font-semibold rounded-xl hover:shadow-lg hover:scale-105 transform transition-all duration-300 flex items-center gap-3"
+                                >
+                                    <FileText className="w-5 h-5" />
+                                    <span>View Resume</span>
+                                    <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                                </button>
+                                
+                                <a 
+                                    href="/assets/resume/resume.pdf" 
+                                    download="resume.pdf"
+                                    className="group relative px-8 py-4 bg-gray-800 border-2 border-highlight text-highlight font-semibold rounded-xl hover:bg-highlight hover:text-dominant hover:shadow-lg hover:scale-105 transform transition-all duration-300 flex items-center gap-3"
+                                >
+                                    <Download className="w-5 h-5" />
+                                    <span>Download Resume</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
