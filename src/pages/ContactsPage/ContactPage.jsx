@@ -14,7 +14,7 @@ const ContactPage = () => {
             label: "Phone",
             value: "+91 8108452426",
             href: "tel:+918108452426",
-            description: "Available everyday"
+            description: "Available Everyday"
         }
     ];
 
@@ -34,7 +34,7 @@ const ContactPage = () => {
     ];
 
     return (
-        <div className="min-h-screen w-full bg-dominant overflow-x-hidden">
+        <div id="contacts" className="min-h-screen w-full bg-dominant overflow-x-hidden">
             {/* Header Section - Updated to match SkillsPage */}
             <div className="relative overflow-hidden bg-gradient-to-br from-dominant to-gray-900">
                 <div className="absolute inset-0 bg-black/20"></div>
