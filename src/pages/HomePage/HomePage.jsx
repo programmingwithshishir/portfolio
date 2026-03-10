@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileImage from "../../assets/home/profile.jpg";
+import ProfileImage from "../../assets/home/profile.webp";
 
 const HomePage = () => {
     const scrollToSection = (sectionId) => {
