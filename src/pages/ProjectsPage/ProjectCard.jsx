@@ -34,38 +34,40 @@ const ProjectCard = ({
 
   return (
     <>
-      {/* Project Card - Enhanced with elevated styling */}
+      {/* Project Card */}
       <div 
-        className="bg-gray-800 border border-gray-700 rounded-xl p-6 shadow-2xl hover:border-highlight transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-highlight/20 group hover:scale-105"
+        className="bg-card border border-white/5 rounded-xl p-4 sm:p-5 hover:border-white/20 transition-all duration-200 cursor-pointer group flex flex-col justify-between"
         onClick={openFullscreen}
       >
-        {/* Image Preview */}
-        {images.length > 0 && (
-          <div className="w-full h-48 bg-gray-700 rounded-lg mb-4 overflow-hidden border border-gray-600">
-            <img 
-              src={images[0]} 
-              alt={title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-        )}
+        <div>
+          {/* Image Preview */}
+          {images.length > 0 && (
+            <div className="w-full h-36 sm:h-44 bg-neutral-900 rounded-lg mb-3 sm:mb-4 overflow-hidden border border-white/5">
+              <img 
+                src={images[0]} 
+                alt={title}
+                className="w-full h-full object-cover group-hover:opacity-90 transition-opacity duration-300"
+              />
+            </div>
+          )}
 
-        {/* Title */}
-        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-highlight transition-colors duration-300">
-          {title}
-        </h3>
+          {/* Title */}
+          <h3 className="text-base sm:text-lg font-semibold text-white mb-1.5 sm:mb-2 group-hover:text-highlight transition-colors duration-200">
+            {title}
+          </h3>
 
-        {/* Description Preview */}
-        <p className="text-gray-300 text-sm mb-4 line-clamp-3 leading-relaxed">
-          {description}
-        </p>
+          {/* Description Preview */}
+          <p className="text-neutral-400 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2 leading-relaxed font-light">
+            {description}
+          </p>
+        </div>
 
-        {/* Tags - Enhanced styling */}
-        <div className="flex flex-wrap gap-2">
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
           {tags.map((tag, index) => (
             <span 
               key={index}
-              className="px-3 py-1 bg-highlight/20 text-highlight text-xs rounded-full border border-highlight/30 group-hover:bg-highlight/30 transition-colors duration-300"
+              className="px-2 py-0.5 bg-white/[0.03] text-neutral-300 text-[11px] sm:text-xs rounded border border-white/5 font-mono"
             >
               {tag}
             </span>
@@ -73,29 +75,29 @@ const ProjectCard = ({
         </div>
       </div>
 
-      {/* Fullscreen Modal - Enhanced styling */}
+      {/* Fullscreen Modal */}
       {isFullscreen && (
-        <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 overflow-y-auto">
-          <div className="min-h-screen p-4 md:p-8">
-            {/* Close Button - Enhanced */}
+        <div className="fixed inset-0 bg-[#0f1117]/95 backdrop-blur-md z-50 overflow-y-auto">
+          <div className="min-h-screen p-3 sm:p-6 md:p-8">
+            {/* Close Button */}
             <button
               onClick={closeFullscreen}
-              className="cursor-pointer fixed top-4 right-4 z-60 p-2 bg-gray-800 hover:bg-gray-700 rounded-full transition-all duration-300 border border-gray-600 shadow-lg hover:border-highlight"
+              className="cursor-pointer fixed top-3 right-3 sm:top-4 sm:right-4 z-60 p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors border border-white/15"
             >
-              <X className="w-6 h-6 text-white" />
+              <X className="w-5 h-5 text-white" />
             </button>
 
             {/* Modal Content */}
-            <div className="max-w-4xl mx-auto pt-16">
+            <div className="max-w-4xl mx-auto pt-10 sm:pt-14 pb-10">
               {/* Title */}
-              <h1 className="text-3xl md:text-4xl font-bold text-white mb-6 text-center">
+              <h1 className="text-xl sm:text-3xl font-semibold text-white mb-4 sm:mb-6 text-center">
                 {title}
               </h1>
 
-              {/* Image Gallery - Enhanced styling */}
+              {/* Image Gallery */}
               {images.length > 0 && (
-                <div className="relative mb-8">
-                  <div className="w-full h-64 md:h-96 bg-gray-800 rounded-xl overflow-hidden border border-gray-700 shadow-2xl">
+                <div className="relative mb-6 sm:mb-8">
+                  <div className="w-full h-48 sm:h-72 md:h-96 bg-neutral-900 rounded-xl overflow-hidden border border-white/10">
                     <img 
                       src={images[currentImageIndex]} 
                       alt={`${title} - Image ${currentImageIndex + 1}`}
@@ -103,30 +105,30 @@ const ProjectCard = ({
                     />
                   </div>
                   
-                  {/* Image Navigation - Enhanced */}
+                  {/* Image Navigation */}
                   {images.length > 1 && (
                     <>
                       <button
                         onClick={prevImage}
-                        className="cursor-pointer absolute left-2 top-1/2 transform -translate-y-1/2 p-2 bg-gray-800 hover:bg-gray-700 rounded-full transition-all duration-300 border border-gray-600 shadow-lg hover:border-highlight"
+                        className="cursor-pointer absolute left-2 sm:left-3 top-1/2 transform -translate-y-1/2 p-1.5 sm:p-2 bg-black/60 hover:bg-black/80 rounded-lg transition-colors border border-white/10 text-white"
                       >
-                        <ChevronLeft className="w-5 h-5 text-white" />
+                        <ChevronLeft className="w-4 h-4" />
                       </button>
                       <button
                         onClick={nextImage}
-                        className="cursor-pointer absolute right-2 top-1/2 transform -translate-y-1/2 p-2 bg-gray-800 hover:bg-gray-700 rounded-full transition-all duration-300 border border-gray-600 shadow-lg hover:border-highlight"
+                        className="cursor-pointer absolute right-2 sm:right-3 top-1/2 transform -translate-y-1/2 p-1.5 sm:p-2 bg-black/60 hover:bg-black/80 rounded-lg transition-colors border border-white/10 text-white"
                       >
-                        <ChevronRight className="w-5 h-5 text-white" />
+                        <ChevronRight className="w-4 h-4" />
                       </button>
                       
-                      {/* Image Indicators - Enhanced */}
-                      <div className="flex justify-center mt-4 gap-2">
+                      {/* Image Indicators */}
+                      <div className="flex justify-center mt-2.5 sm:mt-3 gap-1.5">
                         {images.map((_, index) => (
                           <button
                             key={index}
                             onClick={() => setCurrentImageIndex(index)}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                              currentImageIndex === index ? 'bg-highlight scale-125' : 'bg-gray-500 hover:bg-gray-400'
+                            className={`w-2 h-2 rounded-full transition-all duration-200 cursor-pointer ${
+                              currentImageIndex === index ? 'bg-highlight w-4' : 'bg-white/20 hover:bg-white/40'
                             }`}
                           />
                         ))}
@@ -136,26 +138,26 @@ const ProjectCard = ({
                 </div>
               )}
 
-              {/* Project Details - Enhanced with card styling */}
-              <div className="grid md:grid-cols-3 gap-8">
-                {/* Description - Now in a card */}
-                <div className="md:col-span-2 bg-gray-800 rounded-xl p-6 border border-gray-700 shadow-xl">
-                  <h2 className="text-xl font-semibold text-white mb-4">About This Project</h2>
-                  <p className="text-gray-300 leading-relaxed mb-6">
+              {/* Project Details */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+                {/* Description */}
+                <div className="md:col-span-2 bg-card rounded-xl p-4 sm:p-6 border border-white/5">
+                  <h2 className="text-sm sm:text-base font-semibold text-white mb-2 sm:mb-3">About This Project</h2>
+                  <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 font-light">
                     {longDescription}
                   </p>
 
-                  {/* Action Buttons - Enhanced */}
-                  <div className="flex flex-col sm:flex-row gap-4">
+                  {/* Action Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-2.5">
                     {liveUrl && (
                       <a
                         href={liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-highlight hover:bg-highlight/90 text-dominant font-medium rounded-lg transition-all duration-300 shadow-lg hover:shadow-highlight/20 hover:scale-105"
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 bg-highlight text-[#0f1117] font-medium text-xs rounded-lg hover:bg-highlight/90 transition-all duration-200"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        <ExternalLink className="w-4 h-4" />
+                        <ExternalLink className="w-3.5 h-3.5" />
                         View Live
                       </a>
                     )}
@@ -164,24 +166,24 @@ const ProjectCard = ({
                         href={githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-gray-600 hover:border-highlight text-white hover:text-highlight font-medium rounded-lg transition-all duration-300 shadow-lg hover:scale-105"
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-2 border border-white/10 text-neutral-200 font-medium text-xs rounded-lg hover:border-white/20 hover:text-white transition-all duration-200"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        <Github className="w-4 h-4" />
+                        <Github className="w-3.5 h-3.5" />
                         View Code
                       </a>
                     )}
                   </div>
                 </div>
 
-                {/* Technologies - Now in a card with hover effect */}
-                <div className="bg-gray-800 rounded-xl p-6 border border-gray-700 shadow-xl hover:border-accent transition-colors duration-300">
-                  <h2 className="text-xl font-semibold text-white mb-4">Technologies Used</h2>
-                  <div className="flex flex-wrap gap-2">
+                {/* Technologies */}
+                <div className="bg-card rounded-xl p-4 sm:p-6 border border-white/5">
+                  <h2 className="text-sm sm:text-base font-semibold text-white mb-2 sm:mb-3">Technologies</h2>
+                  <div className="flex flex-wrap gap-1.5">
                     {tags.map((tag, index) => (
                       <span 
                         key={index}
-                        className="px-3 py-2 bg-highlight/20 text-highlight text-sm rounded-lg border border-highlight/30 hover:bg-highlight/30 transition-colors duration-300"
+                        className="px-2 py-1 bg-white/[0.03] text-neutral-300 text-[11px] sm:text-xs rounded border border-white/5 font-mono"
                       >
                         {tag}
                       </span>

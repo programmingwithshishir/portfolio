@@ -34,39 +34,31 @@ const ContactPage = () => {
     ];
 
     return (
-        <div id="contacts" className="min-h-screen w-full bg-dominant overflow-x-hidden">
-            {/* Header Section - Updated to match SkillsPage */}
-            <div className="relative overflow-hidden bg-gradient-to-br from-dominant to-gray-900">
-                <div className="absolute inset-0 bg-black/20"></div>
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
-                    <div className="text-center">
-                        <div className="inline-flex items-center gap-2 mb-6">
-                            <MessageCircle className="w-8 h-8 text-highlight" />
-                            <h1 className="text-4xl md:text-6xl font-bold text-white">
-                                Let's Work Together
-                            </h1>
-                        </div>
-                        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                            I'm always excited to discuss new opportunities, collaborate on interesting projects, 
-                            or simply chat about development and technology
-                        </p>
-                        <div className="mt-8 flex justify-center">
-                            <div className="w-24 h-1 bg-gradient-to-r from-highlight to-accent rounded-full"></div>
-                        </div>
+        <div id="contacts" className="py-14 sm:py-20 w-full bg-dominant border-t border-white/5 overflow-x-hidden">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Header Section */}
+                <div className="mb-8 sm:mb-12 text-center sm:text-left">
+                    <div className="inline-flex items-center gap-2 text-xs font-medium text-highlight bg-highlight/10 px-3 py-1 rounded-full border border-highlight/20 mb-2.5">
+                        <MessageCircle className="w-3.5 h-3.5" />
+                        Contact
                     </div>
+                    <h2 className="text-2xl sm:text-4xl font-semibold text-white tracking-tight">
+                        Let's Work Together
+                    </h2>
+                    <p className="text-neutral-400 text-xs sm:text-base mt-1.5 max-w-2xl font-light">
+                        Always open to discussing new projects, technical ideas, or opportunities.
+                    </p>
                 </div>
-            </div>
 
-            {/* Main Content - Updated styling to match SkillsPage */}
-            <div className="max-w-6xl mx-auto px-3 py-8 sm:px-4 sm:py-12 lg:px-8 lg:py-16">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16">
+                {/* Main Content */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
                     {/* Contact Methods */}
-                    <div className="space-y-6 sm:space-y-8">
-                        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white mb-4 sm:mb-6 lg:mb-8">
+                    <div className="lg:col-span-6 space-y-4 sm:space-y-6">
+                        <h3 className="text-xs font-semibold text-neutral-400 uppercase tracking-wider px-1">
                             Get In Touch
-                        </h2>
+                        </h3>
                         
-                        <div className="space-y-4 sm:space-y-6">
+                        <div className="space-y-2.5 sm:space-y-3">
                             {contactMethods.map((method, index) => {
                                 const Icon = method.icon;
                                 return (
@@ -75,40 +67,71 @@ const ContactPage = () => {
                                         href={method.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="group block p-4 sm:p-6 bg-gray-800 hover:border-highlight rounded-xl sm:rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-highlight/10 border border-gray-700 shadow-2xl"
+                                        className="group block p-3.5 sm:p-5 bg-card hover:border-white/20 rounded-xl transition-all border border-white/5"
                                     >
-                                        <div className="flex items-start space-x-3 sm:space-x-4">
-                                            <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-highlight/20 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:bg-highlight/30 transition-colors border border-highlight/30">
-                                                <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-highlight" />
+                                        <div className="flex items-start justify-between">
+                                            <div className="flex items-start space-x-3">
+                                                <div className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 bg-white/[0.03] rounded-lg flex items-center justify-center border border-white/5 text-highlight">
+                                                    <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                                </div>
+                                                <div className="min-w-0 pr-2">
+                                                    <h4 className="text-xs sm:text-sm font-medium text-white mb-0.5">
+                                                        {method.label}
+                                                    </h4>
+                                                    <p className="text-xs text-highlight font-mono mb-0.5 break-all sm:break-normal">
+                                                        {method.value}
+                                                    </p>
+                                                    <p className="text-[11px] sm:text-xs text-neutral-500 font-light">
+                                                        {method.description}
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <div className="flex-1 min-w-0 pr-2">
-                                                <h3 className="text-base sm:text-lg font-semibold text-white mb-1">
-                                                    {method.label}
-                                                </h3>
-                                                <p className="text-sm sm:text-base text-highlight font-medium mb-1 break-all sm:break-normal">
-                                                    {method.value}
-                                                </p>
-                                                <p className="text-xs sm:text-sm text-gray-300">
-                                                    {method.description}
-                                                </p>
-                                            </div>
-                                            <div className="flex-shrink-0">
-                                                <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-highlight transition-colors" />
-                                            </div>
+                                            <ExternalLink className="w-3.5 h-3.5 text-neutral-500 group-hover:text-white transition-colors flex-shrink-0" />
                                         </div>
                                     </a>
                                 );
                             })}
                         </div>
+
+                        {/* CTA Card */}
+                        <div className="p-4 sm:p-6 bg-card rounded-xl border border-white/5 space-y-3 sm:space-y-4">
+                            <h4 className="text-sm sm:text-base font-medium text-white">
+                                Ready to Start a Project?
+                            </h4>
+                            <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed font-light">
+                                Whether you need a full-stack web application or technical collaboration, feel free to drop a message.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-2 pt-1">
+                                <a
+                                    href="mailto:programmingwithshishir@gmail.com"
+                                    className="inline-flex items-center justify-center px-4 py-2.5 sm:py-2 bg-highlight text-[#0f1117] font-medium rounded-lg text-xs hover:bg-highlight/90 active:scale-[0.99] transition-all"
+                                >
+                                    <Mail className="w-3.5 h-3.5 mr-2" />
+                                    Send Email
+                                </a>
+                                <button
+                                    onClick={() => {
+                                        const el = document.getElementById('projects');
+                                        if (el) {
+                                            const y = el.getBoundingClientRect().top + window.scrollY - 65;
+                                            window.scrollTo({ top: y, behavior: 'smooth' });
+                                        }
+                                    }}
+                                    className="inline-flex items-center justify-center px-4 py-2.5 sm:py-2 border border-white/10 text-neutral-300 font-medium rounded-lg text-xs hover:border-white/20 hover:text-white active:scale-[0.99] transition-all cursor-pointer"
+                                >
+                                    View My Work
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Social Links & CTA */}
-                    <div className="space-y-6 sm:space-y-8">
-                        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white mb-4 sm:mb-6 lg:mb-8">
+                    {/* Social Links & Info */}
+                    <div className="lg:col-span-6 space-y-4 sm:space-y-6">
+                        <h3 className="text-xs font-semibold text-neutral-400 uppercase tracking-wider px-1">
                             Find Me Online
-                        </h2>
+                        </h3>
                         
-                        <div className="space-y-3 sm:space-y-4">
+                        <div className="space-y-2.5 sm:space-y-3">
                             {socialLinks.map((social, index) => {
                                 const Icon = social.icon;
                                 return (
@@ -117,74 +140,49 @@ const ContactPage = () => {
                                         href={social.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="group flex items-center p-3 sm:p-4 bg-gray-800 hover:border-highlight rounded-lg sm:rounded-xl transition-all duration-300 hover:scale-105 border border-gray-700 shadow-xl"
+                                        className="group flex items-center justify-between p-3.5 sm:p-4 bg-card hover:border-white/20 rounded-xl transition-all border border-white/5"
                                     >
-                                        <div className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-highlight/20 rounded-md sm:rounded-lg flex items-center justify-center group-hover:bg-highlight/30 transition-colors mr-3 sm:mr-4 border border-highlight/30">
-                                            <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-highlight" />
+                                        <div className="flex items-center space-x-3 min-w-0">
+                                            <div className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 bg-white/[0.03] rounded-lg flex items-center justify-center border border-white/5 text-highlight">
+                                                <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                            </div>
+                                            <div className="min-w-0">
+                                                <h4 className="text-xs sm:text-sm font-medium text-white truncate">{social.label}</h4>
+                                                <p className="text-[11px] sm:text-xs text-neutral-400 font-mono truncate">{social.username}</p>
+                                            </div>
                                         </div>
-                                        <div className="flex-1 min-w-0 pr-2">
-                                            <h3 className="text-sm sm:text-base font-medium text-white truncate">{social.label}</h3>
-                                            <p className="text-xs sm:text-sm text-gray-300 truncate">{social.username}</p>
-                                        </div>
-                                        <div className="flex-shrink-0">
-                                            <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-highlight transition-colors" />
-                                        </div>
+                                        <ExternalLink className="w-3.5 h-3.5 text-neutral-500 group-hover:text-white transition-colors flex-shrink-0" />
                                     </a>
                                 );
                             })}
                         </div>
 
-                        {/* CTA Card - Updated to match SkillsPage */}
-                        <div className="mt-8 sm:mt-12 p-4 sm:p-6 lg:p-8 bg-gray-800 rounded-xl sm:rounded-2xl border border-gray-700 shadow-2xl hover:border-accent transition-colors duration-300">
-                            <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">
-                                Ready to Start a Project?
-                            </h3>
-                            <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6 leading-relaxed">
-                                Whether you need a full-stack web application, a mobile app, 
-                                or just want to discuss your ideas, I'm here to help bring your vision to life.
-                            </p>
-                            <div className="flex flex-col gap-3 sm:gap-4">
-                                <a
-                                    href="mailto:programmingwithshishir@gmail.com"
-                                    className="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 bg-highlight hover:bg-highlight/90 text-dominant font-medium rounded-lg transition-all duration-300 text-sm sm:text-base shadow-lg hover:shadow-highlight/20 hover:scale-105"
-                                >
-                                    <Mail className="w-4 h-4 mr-2" />
-                                    Send Email
-                                </a>
-                                <a
-                                    href="#projects"
-                                    className="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 border-2 border-gray-600 text-white font-medium rounded-lg hover:border-highlight hover:text-highlight transition-all duration-300 text-sm sm:text-base shadow-lg hover:scale-105"
-                                >
-                                    View My Work
-                                </a>
-                            </div>
-                        </div>
-
-                        {/* Quick Info - Updated styling */}
-                        <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gray-800 rounded-lg sm:rounded-xl border border-gray-700 shadow-xl hover:border-accent transition-colors duration-300">
-                            <h4 className="text-sm sm:text-base font-semibold text-white mb-2 sm:mb-3">Quick Info</h4>
-                            <div className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-300">
-                                <p>⚡ Usually respond within 24 hours</p>
-                                <p>🌍 Available for remote collaborations</p>
-                                <p>💼 Open to freelance and full-time opportunities</p>
+                        {/* Quick Info */}
+                        <div className="p-4 sm:p-5 bg-card rounded-xl border border-white/5">
+                            <h4 className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-2.5">Availability</h4>
+                            <div className="space-y-1.5 text-xs text-neutral-300 font-light">
+                                <p className="flex items-center gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>
+                                    Usually respond within 24 hours
+                                </p>
+                                <p className="flex items-center gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-highlight flex-shrink-0"></span>
+                                    Available for remote collaborations
+                                </p>
+                                <p className="flex items-center gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0"></span>
+                                    Open to freelance & full-time roles
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <footer className="mt-20 bg-gray-900 border-t border-gray-700 py-8">
-                    <div className="max-w-6xl mx-auto px-4 text-center">
-                        <div className="flex items-center justify-center gap-2 mb-4">
-                            <div className="w-2 h-2 bg-highlight rounded-full"></div>
-                            <p className="text-gray-400 text-sm">
-                                © 2025 Shishir Shetty
-                            </p>
-                            <div className="w-2 h-2 bg-accent rounded-full"></div>
-                        </div>
-                        <p className="text-gray-500 text-xs">
-                            Built with React & Tailwind CSS
-                        </p>
-                    </div>
+                {/* Footer */}
+                <footer className="mt-14 sm:mt-20 pt-6 border-t border-white/5 text-center">
+                    <p className="text-neutral-500 text-xs font-light">
+                        © 2025 Shishir Shetty. Built with React & Tailwind CSS.
+                    </p>
                 </footer>
             </div>
         </div>
